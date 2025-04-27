@@ -118,7 +118,7 @@ def _s(p, v):
 
 
 def _t(p, v):
-    return str("%.1f" % v) + "°C"
+    return str("%.1f" % v) + "Â°C"
 
 
 def _v(p, v):
@@ -584,8 +584,7 @@ class DbusMqttBatteryService:
                     line = exception_traceback.tb_lineno
                     logging.error(f"Exception occurred: {repr(exception_object)} of type {exception_type} in {file} line #{line}")
 
-            logging.info("Battery SoC: {:.2f} V - {:.2f} %".format(battery_dict["/Dc/0/Power"]["value"], battery_dict["/Soc"]["value"]))
-
+            
             last_updated = last_changed
 
         # quit driver if timeout is exceeded
@@ -647,7 +646,7 @@ def main():
 
     # wait to receive first data, else the JSON is empty and phase setup won't work
     i = 0
-    while battery_dict["/Dc/0/Power"]["value"] is None:
+    while battery_dict["/Soc"]["value"] is None:
         if i % 12 != 0 or i == 0:
             logging.info("Waiting 5 seconds for receiving first data...")
         else:
