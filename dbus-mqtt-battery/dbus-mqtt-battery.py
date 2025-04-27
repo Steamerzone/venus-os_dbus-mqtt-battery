@@ -584,6 +584,7 @@ class DbusMqttBatteryService:
                     line = exception_traceback.tb_lineno
                     logging.error(f"Exception occurred: {repr(exception_object)} of type {exception_type} in {file} line #{line}")
 
+
             
             last_updated = last_changed
 
