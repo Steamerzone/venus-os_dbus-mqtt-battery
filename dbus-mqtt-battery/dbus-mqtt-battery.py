@@ -118,7 +118,7 @@ def _s(p, v):
 
 
 def _t(p, v):
-    return str("%.1f" % v) + "Â°C"
+    return str("%.1f" % v) + "°C"
 
 
 def _v(p, v):
